@@ -1,0 +1,115 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: tahoma, Arial;
+    text-transform: capitalize;
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: 25px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    background-color:rgba(0, 133, 255, 0.7) ;
+    padding: 50px;
+}
+@media (max-width:500px) {
+    .container{
+        padding: 15px;
+    }
+}
+.container .competing-place{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 18px;
+}
+.container .competing-place .two{
+    color: red !important;
+}
+.container .competing-place i {
+    opacity: 1 !important;
+}
+.container .status{
+    margin: 25px auto;
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    color: #006798;
+}
+.container .wait::after{
+    position: relative;
+    content: "";
+    animation: points 1s infinite linear;
+}
+ul{
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    column-gap: 5px;
+    text-align: center;
+    list-style: none;
+}
+ul li{
+    padding: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color: #4b0cdb;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.2s linear ;
+}
+@media (max-width:500px) {
+    ul{
+        grid-template-columns: repeat(3, 60px);
+    }
+    ul li{
+        font-size: 11px !important;
+    }
+    i{
+        font-size: 22px !important;
+    }
+    .status{
+        margin: 10px auto !important;
+        font-size: 17px !important;
+        font-weight: bold;
+        position: relative;
+        color: #006798;
+    }
+}
+ul li span{
+    margin-top: 70px;
+}
+li:hover{
+    opacity: 1;
+}
+i, ul li i{
+    font-size: 50px;
+    color: #4b0cdb;
+}
+.active{
+    opacity: 1;
+}
+@keyframes points {
+    20%{
+        content: ".";
+    }
+    40%{
+        content: "..";
+    }
+    60%{
+        content: "...";
+    }
+    80%{
+        content: "..";
+    }
+    100%{
+        content: ".";
+    }
+}
