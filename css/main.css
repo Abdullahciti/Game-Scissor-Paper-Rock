@@ -5,7 +5,6 @@
 }
 body{
     font-family: tahoma, Arial;
-    text-transform: capitalize;
     height: 100vh;
     width: 100%;
     display: grid;
@@ -33,10 +32,14 @@ body{
 .container .competing-place .two{
     color: red !important;
 }
+.container .competing-place .two > .fa-solid:not(.fa-hand-scissors){
+    position: relative;
+    transform: rotate(-90deg) rotateY(180deg);
+}
 .container .competing-place i {
     opacity: 1 !important;
 }
-.container .status{
+.container .status {
     margin: 25px auto;
     font-size: 25px;
     font-weight: bold;
@@ -56,6 +59,7 @@ ul{
     list-style: none;
 }
 ul li{
+    text-transform: capitalize!important;
     padding: 8px;
     font-size: 18px;
     font-weight: 600;
