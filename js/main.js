@@ -20,7 +20,7 @@ function scissors (){
     del()
     leftSpan.classList.add("fa-solid", "fa-hand", "fa-rotate-90");
 }
-lis.forEach((e) => {
+lis.forEach((e, index) => {
     e.addEventListener("click", (ele) => {
         lis.forEach((check)=>{
             check.classList.remove("active");
@@ -44,11 +44,10 @@ lis.forEach((e) => {
         setTimeout(() => {
             clearInterval(cooldown);
             statusText.classList.remove("wait");
-            statusText.textContent = "user win"
             var classOptions = [
-                "fa-solid fa-hand fa-rotate-270",
+                "fa-solid fa-hand-scissors",
                 "fa-solid fa-hand-back-fist fa-rotate-270",
-                "fa-solid fa-hand-scissors"
+                "fa-solid fa-hand fa-rotate-270",
             ];
             var randomIndex = Math.floor(Math.random() * classOptions.length);
             var randomClass = classOptions[randomIndex];
@@ -57,7 +56,25 @@ lis.forEach((e) => {
             individualClasses.forEach(function(className) {
                 rightSpan.classList.add(className);
             });
-        }, 1500);
+            let cpuValue = ["S", "R", "P"][randomIndex];
+            let userValue = ["S", "R", "P"][index];
+
+            outcomes = {
+                SS : "Draw",
+                SR : "Cpu win",
+                SP : "You win",
+                RR : "Draw",
+                RP : "Cpu Win",
+                RS : "You Win",
+                PP : "Draw",
+                PR : "You Win",
+                PS : "Cpu Win",
+        }
+
+            outcomeValues = outcomes[userValue + cpuValue]
+            // console.log(outcomeValues);
+            statusText.textContent = outcomeValues;
+        }, 2000);
 
     })
 
